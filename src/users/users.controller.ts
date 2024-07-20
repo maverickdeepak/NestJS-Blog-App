@@ -18,10 +18,12 @@ import { UserService } from './providers/users.service';
 
 @Controller('users')
 export class UsersController {
-  constructor(
-    // injecting user service
-    private readonly userService: UserService,
-  ) {}
+  /**
+   * Constructor
+   * Injecting User Service
+   * @param {UserService} userService
+   */
+  constructor(private readonly userService: UserService) {}
 
   @Get('/:id?')
   public getUsers(
@@ -29,10 +31,7 @@ export class UsersController {
     @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
     @Query('page', ParseIntPipe) page: number,
   ) {
-    console.log(getUserParamDTO);
-    console.log(typeof limit);
-    console.log(typeof page);
-    return 'You send a get request to users endpoint';
+    return this.userService.findAll(getUserParamDTO, limit, page);
   }
   @Post()
   public createUser(@Body() createUserDTO: CreateUserDTO) {
