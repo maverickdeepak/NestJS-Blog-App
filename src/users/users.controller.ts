@@ -25,6 +25,13 @@ export class UsersController {
    */
   constructor(private readonly userService: UserService) {}
 
+  /**
+   *
+   * @param getUserParamDTO
+   * @param limit
+   * @param page
+   * @returns Users / User
+   */
   @Get('/:id?')
   public getUsers(
     @Param() getUserParamDTO: GetUserParamDTO,

@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { PostService } from './providers/post.service';
 
 @Controller('posts')
@@ -10,8 +10,22 @@ export class PostController {
    */
   public constructor(private readonly postService: PostService) {}
 
+  // GET: all posts
   @Get()
-  public getPosts() {
-    return this.postService.getPosts();
+  public getAllPosts() {
+    return this.postService.getAllPosts();
+  }
+
+  // GET: post by post ID
+  @Get('/:postId')
+  public getPostById(@Param('postId') postId: string) {
+    console.log('postId', postId);
+    return this.postService.getPostById(postId);
+  }
+
+  // GET: user's all posts
+  @Get('/users/:userId')
+  public getUserPosts(@Param('userId') userId: string) {
+    return this.postService.getUsersPosts(userId);
   }
 }
