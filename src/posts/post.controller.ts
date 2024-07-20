@@ -1,7 +1,10 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { PostService } from './providers/post.service';
 
+import { ApiTags } from '@nestjs/swagger';
+
 @Controller('posts')
+@ApiTags('Posts Api')
 export class PostController {
   /**
    * Constructor
