@@ -28,7 +28,7 @@ export class AuthService {
    * @param token
    * @returns boolean
    */
-  public isAuthenticated(token: string): boolean {
+  public isAuthenticated(): boolean {
     return true;
   }
 }

@@ -18,6 +18,9 @@ export class UserService {
     page: number,
   ) {
     // Auth Service
+    const isAuth = this.authService.isAuthenticated();
+    console.log('isAuth', isAuth);
+
     return [
       {
         id: 1,
