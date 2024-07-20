@@ -13,9 +13,16 @@ import {
 } from '@nestjs/common';
 import { CreateUserDTO } from './dtos/create-user-dto';
 import { GetUserParamDTO } from './dtos/get-user-dto';
+import { PatchUserDTO } from './patch-user-dto';
+import { UserService } from './providers/users.service';
 
 @Controller('users')
 export class UsersController {
+  constructor(
+    // injecting user service
+    private readonly userService: UserService,
+  ) {}
+
   @Get('/:id?')
   public getUsers(
     @Param() getUserParamDTO: GetUserParamDTO,
@@ -33,8 +40,8 @@ export class UsersController {
     return 'You send a post request to users endpoint';
   }
   @Patch()
-  public updateUser() {
-    return 'You send a patch request to users endpoint';
+  public updateUser(@Body() PatchUserDTO: PatchUserDTO) {
+    return PatchUserDTO;
   }
   @Put()
   public replaceUser() {
