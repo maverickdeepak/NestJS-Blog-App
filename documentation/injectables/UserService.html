@@ -119,6 +119,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Class to connect to user table and perform business operation</p>
+
+            </p>
 
 
 
@@ -166,7 +173,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/users/providers/users.service.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/users/providers/users.service.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -233,14 +240,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="15"
-                                    class="link-to-prism">src/users/providers/users.service.ts:15</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="25"
+                                    class="link-to-prism">src/users/providers/users.service.ts:25</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>This method us use for getting all the users</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -326,8 +335,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="47"
-                                    class="link-to-prism">src/users/providers/users.service.ts:47</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/users/providers/users.service.ts:57</a></div>
                         </td>
                     </tr>
 
@@ -385,16 +394,26 @@
 import { GetUserParamDTO } from &#x27;../dtos/get-user-dto&#x27;;
 import { AuthService } from &#x27;src/auth/providers/auth.service&#x27;;
 
+/**
+ * Class to connect to user table and perform business operation
+ */
 @Injectable()
 export class UserService {
   /**
    * Service for Users
    */
   constructor(
-    // Inject Auth Service
     @Inject(forwardRef(() &#x3D;&gt; AuthService))
     private readonly authService: AuthService,
   ) {}
+
+  /**
+   * This method us use for getting all the users
+   * @param getUserParamDTO
+   * @param limit
+   * @param page
+   * @returns
+   */
   public findAll(
     getUserParamDTO: GetUserParamDTO,
     limit: number,

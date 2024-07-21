@@ -2,16 +2,26 @@ import { Injectable, Inject, forwardRef } from '@nestjs/common';
 import { GetUserParamDTO } from '../dtos/get-user-dto';
 import { AuthService } from 'src/auth/providers/auth.service';
 
+/**
+ * Class to connect to user table and perform business operation
+ */
 @Injectable()
 export class UserService {
   /**
    * Service for Users
    */
   constructor(
-    // Inject Auth Service
     @Inject(forwardRef(() => AuthService))
     private readonly authService: AuthService,
   ) {}
+
+  /**
+   * This method us use for getting all the users
+   * @param getUserParamDTO
+   * @param limit
+   * @param page
+   * @returns
+   */
   public findAll(
     getUserParamDTO: GetUserParamDTO,
     limit: number,
