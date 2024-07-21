@@ -43,6 +43,15 @@ export class PostController {
     return this.postService.createPost(createPostDTO);
   }
 
+  // PATCH: Update Post
+  @ApiOperation({
+    summary: 'Update Post',
+    description: 'This Endpoint is using for updating a post.',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Post has been successfully updated',
+  })
   @Patch()
   public updatePost(@Body() patchPostDTO: PatchPostDTO) {
     console.log('patchPostDTO', patchPostDTO);
