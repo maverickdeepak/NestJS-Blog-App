@@ -19,14 +19,14 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('Blog App API Documentation 📄')
     .setDescription(
-      'The Blog API provides endpoints for managing authentication, user accounts, and blog posts. Use the base API URL as http://localhost:3000',
+      'The Blog API provides endpoints for managing authentication, user accounts, and blog posts. Use the base API URL as http://localhost:8080',
     )
     .setTermsOfService('http:localhost:3000/terms-of-service')
     .setLicense(
       'MIT License',
       'https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt',
     )
-    .addServer('http://localhost:3000', 'Testing Server')
+    .addServer('http://localhost:8080', 'Testing Server')
     .setVersion('1.0')
     .build();
 

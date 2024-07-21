@@ -68,4 +68,14 @@ export class PostService {
       },
     ];
   }
+
+  /**
+   * Create a new post
+   * @param {object} post
+   * @returns {object} post
+   */
+
+  public createPost(post: any) {
+    return post;
+  }
 }
